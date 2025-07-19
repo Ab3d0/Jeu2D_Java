@@ -1,6 +1,7 @@
 package fr.ab3d0.Jeu2D;
 
 import fr.ab3d0.entity.Player;
+import fr.ab3d0.tile.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     int FPS = 60;
 
+    TileManager tileManager = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this,keyH);
@@ -83,6 +85,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D) g;
 
+        tileManager.draw(g2);
         player.draw(g2);
 
         g2.dispose();
