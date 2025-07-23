@@ -1,6 +1,7 @@
 package fr.ab3d0.Jeu2D;
 
 import fr.ab3d0.entity.Player;
+import fr.ab3d0.object.SuperObject;
 import fr.ab3d0.tile.TileManager;
 
 import javax.swing.*;
@@ -33,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionGestion cg = new CollisionGestion(this);
     Thread gameThread;
     public Player player = new Player(this,keyH);
+    public SuperObject obj[] = new SuperObject[10]; /* Affiche 10 objets dans la map */
+    public AssetSetter aSetter = new AssetSetter(this);
 
     int playerX = 100;
     int playerY= 100;
@@ -46,6 +49,9 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
+    }
+    public void setupGame(){
+        aSetter.setObject();
     }
 
     public void startGameThread(){
@@ -96,6 +102,14 @@ public class GamePanel extends JPanel implements Runnable{
 
         tileManager.draw(g2);
         player.draw(g2);
+
+        for(int i = 0; i< obj.length ; i++){
+            if(obj[i] != null){
+                obj[i].draw(g2,this);
+
+
+            }
+        }
 
         g2.dispose();
 
