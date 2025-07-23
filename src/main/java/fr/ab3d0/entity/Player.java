@@ -26,7 +26,7 @@ public class Player extends Entity{
 
         solidArea = new Rectangle();
         solidArea.x = 8;
-        solidArea.y = 16;
+        solidArea.y = 8;
         solidArea.width = 32;
         solidArea.height = 32;
 
@@ -61,19 +61,14 @@ public class Player extends Entity{
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true){
             if(keyH.upPressed == true){
                 direction = "up";
-
-
             }else if(keyH.downPressed == true){
                 direction = "down";
-
             }
             else if(keyH.leftPressed == true){
                 direction = "left";
-
             }
             else if (keyH.rightPressed == true){
                 direction = "right";
-                worldX += speed;
             }
 
             collisionOn = false;
