@@ -51,7 +51,7 @@ public class CollisionGestion {
                }
                break;
            case "right":
-               entityRightCol = (entityRightWorldX - entity.speed)/gp.tileSize;
+               entityRightCol = (entityRightWorldX + entity.speed)/gp.tileSize;
                tileNum1 = gp.tileManager.mapTileNum[entityLeftCol][entityTopRow];
                tileNum2 = gp.tileManager.mapTileNum[entityRightCol][entityBottomRow];
                if(gp.tileManager.tile[tileNum1].collision == true || gp.tileManager.tile[tileNum2].collision == true){
